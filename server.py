@@ -6,12 +6,11 @@ async def handler(request):
 
 
 async def enhance(request: web.Request) -> web.Response:
-    data = await request.post()
-    username = data.get('username')
-    print(username)
+    data = await request.json()
+    print(data)
 
-    return web.Response(text=f"OK")
-
+    #return web.Response(body={"message": "OK"})
+    return web.json_response({"message": "OK"})
 
 
 app = web.Application()
